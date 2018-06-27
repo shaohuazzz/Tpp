@@ -1,3 +1,4 @@
+from flask_caching import Cache
 from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_sqlalchemy import  SQLAlchemy
@@ -6,6 +7,7 @@ from flask_sqlalchemy import  SQLAlchemy
 def init_ext(app):
    init_db(app)
    init_mail(app)
+   init_cache_config(app)
 
 
 db = SQLAlchemy()
@@ -19,3 +21,8 @@ mail = Mail()
 
 def init_mail(app):
     mail.init_app(app)
+
+cache = Cache(config={'CACHE_TYPE': 'redis'})
+
+def init_cache_config(app):
+    cache.init_app(app)

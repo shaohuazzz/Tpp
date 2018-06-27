@@ -1,6 +1,6 @@
 from flask import Blueprint ,request ,jsonify ,render_template
 from flask_mail import  Message
-from app.ext import db ,mail
+from app.ext import db, mail, cache
 from app.user.models import User
 
 user = Blueprint('user',__name__)
@@ -26,8 +26,11 @@ def register():
                 db.session.add(user)
                 db.session.commit()
             msg = Message('Hello',
+                          body='用户您好',
+                          html=render_template('activate.html',username=username),
                           sender='18971367155@163.com',
                           recipients=['18971367155@163.com'])
+            cache.set(username=username)
             mail.send(msg)
         else:
             result.update(msg='必要参数不能为空',status=-1)
