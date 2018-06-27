@@ -1,3 +1,5 @@
+import os
+
 from flask_caching import Cache
 from flask_mail import Mail
 from flask_migrate import Migrate
@@ -26,3 +28,6 @@ cache = Cache(config={'CACHE_TYPE': 'redis'})
 
 def init_cache_config(app):
     cache.init_app(app)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_ROOT_PATH = os.path.join(BASE_DIR,'templates')
