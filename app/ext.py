@@ -17,7 +17,7 @@ migrate = Migrate()
 
 def init_db(app):
     db.init_app(app=app)
-    migrate.init_app(app,db)
+    migrate.init_app(app, db)
 
 mail = Mail()
 
@@ -28,6 +28,3 @@ cache = Cache(config={'CACHE_TYPE': 'redis'})
 
 def init_cache_config(app):
     cache.init_app(app)
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_ROOT_PATH = os.path.join(BASE_DIR,'templates')
