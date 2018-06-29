@@ -2,6 +2,7 @@ import os
 
 from flask_caching import Cache
 from flask_mail import Mail
+from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 from flask_sqlalchemy import  SQLAlchemy
 
@@ -28,3 +29,7 @@ cache = Cache(config={'CACHE_TYPE': 'redis'})
 
 def init_cache_config(app):
     cache.init_app(app)
+
+
+
+ma = Marshmallow

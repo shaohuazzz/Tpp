@@ -7,7 +7,9 @@ from app.settings import env
 from app import settings
 
 app = Flask(__name__)
-CORS(app,)
+CORS(app,supports_credentials=True)
+
+
 def create_app(env_name):
 
     app.config.from_object(env.get(env_name))
