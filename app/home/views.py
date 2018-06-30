@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify
 from sqlalchemy import func
 from app.utils.json_utils import to_list
 
-from app.home.models import Area , Movies ,Cinemas
+from app.home.models import Area , Movies
 
 
 home = Blueprint('home', __name__)

@@ -11,6 +11,7 @@ def init_ext(app):
    init_db(app)
    init_mail(app)
    init_cache_config(app)
+   init_marshmallow(app)
 
 
 db = SQLAlchemy()
@@ -32,4 +33,6 @@ def init_cache_config(app):
 
 
 
-ma = Marshmallow
+ma = Marshmallow()
+def init_marshmallow(app):
+    ma.init_app(app)

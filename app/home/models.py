@@ -9,24 +9,9 @@ class Area(db.Model):
     key = db.Column(db.String(10))
     is_hot = db.Column(db.Boolean, default=False)
 
-
-class Cinemas(db.Model):
-    __tablename__ = 'cinemas'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100))  # 影院名
-    city = db.Column(db.String(50))  # 所在城市
-    district = db.Column(db.String(50))  # 区域
-    address = db.Column(db.String(200))  # 地址
-    phone = db.Column(db.String(20))  # 电话
-    score = db.Column(db.Float)  # 评分
-    hallnum = db.Column(db.Integer)  # 影厅数量
-    servicecharge = db.Column(db.Float)  # 服务费
-    astrict = db.Column(db.Integer)  # 限购数量
-    flag = db.Column(db.Integer)  # 状态(营业1，休息0)
-    isdelete = db.Column(db.Boolean, default=False)  # 是否删除
-
 class Movies(db.Model):
     __tablename__ = 'movies'
+    mid = db.Column(db.Integer, primary_key=True)
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     showname = db.Column(db.String(100))  #中文名
     shownameen = db.Column(db.String(200))  #英文名

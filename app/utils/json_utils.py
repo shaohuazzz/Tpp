@@ -1,4 +1,6 @@
 import datetime
+from decimal import Decimal
+
 
 class Test:
     def __init__(self):
@@ -14,6 +16,8 @@ def to_dict(object):
                 obj[key] = getattr(object, key).strftime('%Y-%m-%d %H:%M:%S')
             elif isinstance(getattr(object, key), datetime.date):
                 obj[key] = getattr(object, key).strftime('%Y-%m-%d')
+            elif isinstance(getattr(object, key), Decimal):
+                obj[key] = str(getattr(object, key))
             else:
                 obj[key] = getattr(object, key)
     return obj
